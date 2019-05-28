@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>二十四节气-首页</title>
+
+    <style type="text/css">
+        *{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .container{
+            width: 700px;
+            height: 437px;
+            position: relative;
+            margin: 20% auto 0 auto;
+            box-shadow:0 0 5px green; /*添加阴影*/
+            overflow: hidden; /*将多余的设置为不可见*/
+        }
+
+        .wrap{
+            position: absolute;
+            width: 4900px;
+            height: 437px;
+            z-index: 1; /* 在前面*/
+        }
+
+        .container .wrap img{
+            float: left;
+            width: 700px;
+            height: 437px;
+        }
+
+        .container .buttons{
+            position: absolute;
+            right: 150px;
+            bottom: 20px;
+
+            width: 150px;
+            height: 10px;
+            z-index: 2;
+        }
+
+        .container .buttons span{
+            margin-left: 5px;
+            display: inline-block;  /* 块级元素 */
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: green; 
+            text-align: center;
+            color: white;
+
+            /*鼠标放在上面时的光标形状*/
+            cursor: pointer; 
+        }
+
+        .container .buttons span.on{
+            background-color: red;
+        }
+
+        .container .arrow{
+            position: absolute;
+            top: 35%;
+
+            color: green;
+            padding: 0px 14px;
+            border-radius: 50%;
+            font-size: 50px;
+
+            z-index: 2;
+            display: none; /* 不显示 */
+        }
+
+        .container .arrow_left{ left: 10px; }
+        .container .arrow_right{ right:10px; }
+        .container:hover .arrow{ display: block; }
+        .container .arrow:hover { background-color: rgba(0,0,0,0.2); }
+
+        h1{
+        	position: absolute;
+        	left:40%;
+        	top: 45px;
+        	font-family: "楷体";
+        	font-size: 3em;
+        }
+
+        p{
+        	position: absolute;
+        	left:35%;
+        	top:110px; 
+        	font-size: 1.5em;
+        }
+
+        
+        
+        /*
+            导航栏
+        */  
+        #nav {
+            position:absolute;
+            top:140px;
+
+        }
+
+        #nav nav ul li{
+            height: 60px;
+            width:90px;
+           
+            background: #b0fe747d;
+            border-left: solid 6px green;
+            border-bottom: solid 1px green;
+        
+        }
+
+        #nav nav ul li nav{
+            position: relative;
+            left:90px;  
+            top:-62px;
+            width:540px; 
+            display: none;
+            z-index: 3;
+        }   
+
+        
+        #nav nav ul li nav ul li{
+            float:left;
+            background: #f4857a4d;
+            border:none;
+        }
+
+        a{
+            display: block;
+            padding: 20px;
+            width:50px;
+            text-align: center;
+        }
+    
+        #nav nav ul li a:hover{
+            background: #748bfe7d;
+            color:#fff;
+        }
+    
+        #nav nav ul li:hover nav{ display: inline-block; }
+
+        footer{
+            position:absolute;
+            bottom: 2px;
+            left:40%;
+        }
+        form{
+            position: absolute;
+            left:35%;
+            top:170px; 
+        }
+        input{
+            position: relative;
+            top:-15px;
+            width: 450px;
+            height: 25px;
+            border:solid 3px #94e56a;
+        }
+
+        button{
+            border:none;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    	<h1>二十四节气</h1>
+    	<p>每一个中国人都需要了解的基本知识！</p>
+        <form method="POST">
+            <input type="text" name="text" placeholder="输入你心中所想！">
+            <button onclick="myonclick()"><img src="images/0/0.jpg" width="45" height="45"></button>
+        </form>
+   <div id="nav">
+        <nav>
+            <ul>
+                <li class="wai"><a href="#">简介</a></li>
+                <li class="wai"><a href="#">春季</a>
+                    <nav>
+                        <ul class="nei">
+                            <li><a href="#">立春</a></li>
+                            <li><a href="#">雨水</a></li>
+                            <li><a href="#">惊蛰</a></li>
+                            <li><a href="#">春分</a></li>
+                            <li><a href="#">清明</a></li>
+                            <li><a href="#">谷雨</a></li>
+                        </ul>
+                    </nav>
+                </li>
+                <li class="wai"><a href="#">夏季</a>
+                    <nav>
+                        <ul class="nei">
+                            <li><a href="#">立夏</a></li>
+                            <li><a href="#">小满</a></li>
+                            <li><a href="#">芒种</a></li>
+                            <li><a href="#">夏至</a></li>
+                            <li><a href="#">小暑</a></li>
+                            <li><a href="#">大暑</a></li>
+                        </ul>
+                    </nav>
+                </li>
+                <li class="wai"><a href="#">秋季</a>
+                    <nav>
+                        <ul class="nei">
+                            <li><a href="#">立秋</a></li>
+                            <li><a href="#">处暑</a></li>
+                            <li><a href="#">白露</a></li>
+                            <li><a href="#">秋分</a></li>
+                            <li><a href="#">寒露</a></li>
+                            <li><a href="#">霜降</a></li>
+                        </ul>
+                    </nav>
+                </li>
+                <li class="wai"><a href="#">冬季</a>
+                    <nav>
+                        <ul class="nei">
+                            <li><a href="#">立冬</a></li>
+                            <li><a href="#">小雪</a></li>
+                            <li><a href="#">大雪</a></li>
+                            <li><a href="#">冬至</a></li>
+                            <li><a href="#">小寒</a></li>
+                            <li><a href="#">大寒</a></li>
+                        </ul>
+                    </nav>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <!-- 图片放映区 -->
+        <div class="wrap" style="left:-700px;">
+            <img src="images/lidong.jpg" alt="立冬">
+            <img src="images/lichun.jpg" alt="立春">
+            <img src="images/lixia.jpg" alt="立夏">
+            <img src="images/liqiu.jpg" alt="立秋">
+            <img src="images/lidong.jpg" alt="立冬">
+            <img src="images/lichun.jpg" alt="立春">
+        </div>
+
+        <!-- 图片序号区 -->
+        <div class="buttons">
+            <span class="on">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+        </div>
+        <!-- 控制前进与后退 -->
+        <a href="javascript:;" class="arrow arrow_left">&lt;</a>
+        <a href="javascript:;" class="arrow arrow_right">&gt;</a>
+    </div>
+
+    <footer>Copyright © 2019 （-__-） 版权所有</footer>
+
+    <script type="text/javascript">
+
+        function myonclick(){
+            alert("由于您未购买："+"暂未开放!");
+        }
+        //获取 .wrap 里的元素
+        var wrap = document.querySelector(".wrap");
+        //获取 .arrow_right 里的元素
+        var next = document.querySelector(".arrow_right");
+        //获取 .arrow_left 里的元素
+        var prev = document.querySelector(".arrow_left");
+        
+        /*
+        	下一张图片按钮	
+        */
+        function next_pic () {
+
+            index++;
+            if(index > 3){
+                index = 0;
+            }
+            showCurrentDot();
+
+            var newLeft;
+            if(wrap.style.left === "-3500px"){
+                newLeft = -1400;
+            }
+            else{
+                newLeft = parseInt(wrap.style.left)-700;
+            }
+            wrap.style.left = newLeft + "px";
+        }
+        next.onclick = function () {
+            next_pic();
+        }
+
+        /*
+        	上一张图片按钮
+         */
+        function prev_pic () {
+
+            index--;
+            if(index < 0){
+                index = 3;
+            } 
+            showCurrentDot();
+
+            var newLeft;                    
+
+            if(wrap.style.left === "0px"){
+                newLeft = -2100;
+            }
+            else{
+                newLeft = parseInt(wrap.style.left)+700;
+            } 
+            wrap.style.left = newLeft + "px";
+        }
+        prev.onclick = function () {
+            prev_pic();     
+        }
+
+
+
+        var timer = null;
+
+        function autoPlay() {
+            timer = setInterval(function () {
+                next_pic();
+            } ,2000); 
+        }
+        autoPlay();
+
+        var container = document.querySelector(".container");
+
+        container.onmouseenter = function(){
+            clearInterval(timer);
+        }
+
+        container.onmouseleave = function(){
+            autoPlay();
+        }
+
+        /*
+        	控制下方的小圆点
+         */
+        var index = 0;
+        var dots = document.getElementsByTagName("span");
+        function showCurrentDot(){
+            for(var i = 0, len = dots.length; i < len; i++){
+                dots[i].className = "";
+            }
+            dots[index].className = "on";
+        }
+        /*
+        	自动滚动
+         */
+        for(var i = 0, len = dots.length; i < len; i++){
+            (function(i){
+                dots[i].onclick = function(){
+                    var dis = index - i;
+                    if(index == 3 && parseInt(wrap.style.left)!== -2800){
+                        dis = dis - 4;  //和使用prev和next相同，在最开始的照片5和最终的照片1在使用时会出现问题，导致符号和位数的出错，做相应地处理即可
+                    }
+                    if (index == 0 && parseInt(wrap.style.left)!== -700){
+                        dis = 4 + dis;
+                    }
+                    wrap.style.left = (parseInt(wrap.style.left) + dis *700) + "px";
+                    index = i;
+                    showCurrentDot();
+                }
+            })(i);
+        } 
+    </script>
+</body>
+</html>
